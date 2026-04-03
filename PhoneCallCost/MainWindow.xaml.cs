@@ -3,16 +3,28 @@ using System.Windows;
 
 namespace PhoneCallCost
 {
+    /// <summary>
+    /// Главное окно приложения. Обрабатывает ввод данных и вызывает калькулятор.
+    /// </summary>
     public partial class MainWindow : Window
     {
         private readonly PhoneCallCostCalculator _calculator;
 
+        /// <summary>
+        /// Конструктор окна. Инициализирует компоненты и создаёт экземпляр калькулятора.
+        /// </summary>
         public MainWindow()
         {
             InitializeComponent();
             _calculator = new PhoneCallCostCalculator();
         }
 
+        /// <summary>
+        /// Обработчик нажатия кнопки "Вычислить". Проверяет корректность ввода,
+        /// определяет выходной день, вызывает метод расчёта и выводит результат.
+        /// </summary>
+        /// <param name="sender">Объект, вызвавший событие (кнопка).</param>
+        /// <param name="e">Параметры события.</param>
         private void CalculateButton_Click(object sender, RoutedEventArgs e)
         {
             if (!double.TryParse(DurationTextBox.Text, out double duration) || duration <= 0)

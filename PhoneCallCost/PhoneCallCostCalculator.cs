@@ -2,8 +2,19 @@
 
 namespace PhoneCallCost
 {
+    /// <summary>
+    /// Класс для расчёта стоимости телефонного разговора с учётом скидок.
+    /// </summary>
     public class PhoneCallCostCalculator
     {
+        /// <summary>
+        /// Вычисляет итоговую стоимость разговора.
+        /// </summary>
+        /// <param name="duration">Длительность разговора в минутах (положительное число).</param>
+        /// <param name="pricePerMinute">Цена одной минуты (положительное число).</param>
+        /// <param name="isWeekend">Флаг выходного дня (true – суббота или воскресенье).</param>
+        /// <returns>Итоговая стоимость с учётом применённых скидок.</returns>
+        /// <exception cref="ArgumentException">Выбрасывается, если duration или pricePerMinute ≤ 0.</exception>
         public double CalculateCost(double duration, double pricePerMinute, bool isWeekend)
         {
             if (duration <= 0)
