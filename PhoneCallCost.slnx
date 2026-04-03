@@ -1,4 +1,7 @@
 <Solution>
+  <Folder Name="/screenshots/">
+    <File Path="../../../Downloads/Обозреватель тестов.jpg" />
+  </Folder>
   <Project Path="PhoneCallCost/PhoneCallCost.csproj" />
   <Project Path="UnitTestProject/UnitTestProject.csproj" />
 </Solution>
