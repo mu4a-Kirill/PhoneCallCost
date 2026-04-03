@@ -5,9 +5,12 @@ namespace PhoneCallCost
 {
     public partial class MainWindow : Window
     {
+        private readonly PhoneCallCostCalculator _calculator;
+
         public MainWindow()
         {
             InitializeComponent();
+            _calculator = new PhoneCallCostCalculator();
         }
 
         private void CalculateButton_Click(object sender, RoutedEventArgs e)
@@ -24,22 +27,9 @@ namespace PhoneCallCost
                 return;
             }
 
-            double totalCost = 0;
-
-            if (duration <= 30)
-            {
-                totalCost = duration * pricePerMinute;
-            }
-            else
-            {
-                totalCost = 30 * pricePerMinute + (duration - 30) * pricePerMinute * 0.7;
-            }
-
             bool isWeekend = (SaturdayRadio.IsChecked == true) || (SundayRadio.IsChecked == true);
-            if (isWeekend)
-            {
-                totalCost *= 0.85;
-            }
+
+            double totalCost = _calculator.CalculateCost(duration, pricePerMinute, isWeekend);
 
             CostTextBox.Text = totalCost.ToString("F2");
         }
