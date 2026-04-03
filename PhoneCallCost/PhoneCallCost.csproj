@@ -96,7 +96,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="screenshots\Обозреватель тестов.jpg" />
+    <Resource Include="screenshots\screen.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
